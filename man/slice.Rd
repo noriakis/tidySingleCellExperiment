@@ -94,6 +94,7 @@ pbmc_small |> slice(1)
 Other single table verbs: 
 \code{\link{arrange}()},
 \code{\link{mutate}()},
+\code{\link{relocate}()},
 \code{\link{rename}()},
 \code{\link{summarise}()}
 }

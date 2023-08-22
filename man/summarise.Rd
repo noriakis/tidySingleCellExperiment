@@ -101,6 +101,7 @@ pbmc_small |> summarise(mean(nCount_RNA))
 Other single table verbs: 
 \code{\link{arrange}()},
 \code{\link{mutate}()},
+\code{\link{relocate}()},
 \code{\link{rename}()},
 \code{\link{slice}()}
 }

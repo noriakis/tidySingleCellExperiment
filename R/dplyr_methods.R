@@ -693,3 +693,46 @@ pull.SingleCellExperiment <- function(.data, var=-1, name=NULL, ...) {
         as_tibble() %>%
         dplyr::pull(var=!!var, name=!!name, ...)
 }
+
+
+#' Change column order
+#'
+#'
+#' @importFrom dplyr relocate
+#'
+#' @return
+#' An object of the same type as `.data`.
+#'
+#' @rdname dplyr-methods
+#' @name relocate
+#'
+#' @export
+#' @param .data A data frame, data frame extension (e.g. a tibble), or a
+#'   lazy data frame (e.g. from dbplyr or dtplyr). See *Methods*, below, for
+#'   more details.
+#' @param ... <[`tidy-eval`][dplyr_eval]> Variables, or functions or
+#'   variables. Use desc() to sort a variable in descending order.
+#' @param .before,.after <[`tidy-select`][dplyr_tidy_select]> Destination of
+#'   columns selected by `...`. Supplying neither will move columns to the
+#'   left-hand side; specifying both is an error.
+#'
+#' @family single table verbs
+#' @examples
+#' `%>%` = magrittr::`%>%`
+#' pbmc_small %>% relocate(groups)
+NULL
+
+#' @importFrom tibble as_tibble
+#'
+#' @export
+#' @inheritParams relocate
+relocate.SingleCellExperiment <- function(.data, ..., .before = NULL, .after = NULL) {
+
+    colData(.data) <- .data %>%
+        colData() %>%
+        as_tibble(rownames=c_(.data)$name) %>%
+        dplyr::relocate(  ..., .before=!!enquo(.before), .after=!!enquo(.after) ) %>%
+        as_meta_data(.data)
+
+    .data
+}

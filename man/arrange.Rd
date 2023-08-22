@@ -69,6 +69,7 @@ pbmc_small |>
 \seealso{
 Other single table verbs: 
 \code{\link{mutate}()},
+\code{\link{relocate}()},
 \code{\link{rename}()},
 \code{\link{slice}()},
 \code{\link{summarise}()}

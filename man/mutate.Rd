@@ -106,6 +106,7 @@ pbmc_small |> mutate(nFeature_RNA=1)
 \seealso{
 Other single table verbs: 
 \code{\link{arrange}()},
+\code{\link{relocate}()},
 \code{\link{rename}()},
 \code{\link{slice}()},
 \code{\link{summarise}()}

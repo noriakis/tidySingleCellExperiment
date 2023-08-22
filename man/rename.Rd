@@ -53,6 +53,7 @@ pbmc_small |> rename(s_score=nFeature_RNA)
 Other single table verbs: 
 \code{\link{arrange}()},
 \code{\link{mutate}()},
+\code{\link{relocate}()},
 \code{\link{slice}()},
 \code{\link{summarise}()}
 }
