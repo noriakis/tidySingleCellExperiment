@@ -44,7 +44,7 @@ unnest_single_cell_experiment  <-  function(data, cols, ...,
     # If my only column to unnest() is a 'tidySingleCellExperiment'
     # [HLC: comment says 'only', but only the first entry is being checked.
     # is this intentional? or, what happens if, e.g., the 2nd is a tidySCE?]
-    .test <- .data_ |> pull(!!cols) |> _[[1]] |> is("SingleCellExperiment")
+    .test <- .data_ |> pull(!!cols) %>% .[[1]] |> is("SingleCellExperiment")
     if (.test) {
         # Do my trick to unnest()
         .data_ |>
